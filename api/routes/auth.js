@@ -57,10 +57,11 @@ router.post('/login', async (req, res) => {
         );
   
         const { password, ...others } = user._doc;  
-        res.status(200).json({...others, accessToken});
+        res.status(200).send({...others, accessToken});
 
     }catch(err){
-        res.status(500).json(err);
+      console.log('err',err)
+        res.status(500).send(err);//json aawadhneha b send khater tet9ouheb
     }
 
 });
